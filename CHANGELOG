@@ -1,6 +1,50 @@
 RIPS CHANGELOG
 ===============
 
+RIPS 0.54
+----------
+	- fixed Javascript errors
+	- fixed bug with false negatives in non-OOP code after OOP code (thanks to Gareth Heyes)
+	- improved handling of parse_str() function
+	- added new taintable $_SERVER parameters to sources (thanks to Mike Brooks)
+	- added new sinks
+
+RIPS 0.53
+----------
+	- fixed bug with includes (thanks to Ryan Dewhurst)
+
+RIPS 0.52
+----------
+	Code analysis:
+	- fixed bug where RIPS hangs on includes building a loop 1->2->3->1->2->3->1... (thanks to Michael Hoffmann)
+	- fixed bug where RIPS string analyzer hangs on certain array keys coming from foreach statements (thanks to Ricky-Lee Birtles)
+	- fixed bug where RIPS hangs on certain switch statements (thanks to Jay Bonci)
+	- fixed bug with wrong brace wrapping for "case x;" instead of "case x:" statements
+	- fixed bug with wrong brace wrapping when if-clause contains only 1 token or in a try/catch block
+	- fixed bug with parameter count in interprocedural analysis
+	- fixed bug with register_globals implementation and constants
+	- fixed bug with tokenizing a do-while in a do-while
+	- fixed bug with wrong boundary detection when a function is declared in another function
+	- fixed bug with wrong file pointer of included files, improved include rate
+	- added auto_prepend/append_file support, improved include_path support (thanks to Jay Bonci)
+	- added support for func_get_args() and func_get_arg()
+	- added support for alternative syntax for control structures (while(): ... endwhile;)
+	- added new sensitive sinks
+	- added experimental option SCAN_REGISTER_GLOBALS (/config/general.php)
+	- added parsing errors to verbosity level = debug, improved code stability
+	
+	Interface:
+	- added stylesheet "print" (thanks to Kurt Payne)
+	- added scrollbars to function code on mouseover
+	- disabled graphs for large projects (>50 files) due to performance
+	- improved output when a vulnerability is found multiple times (e.g. by multiple inclusion of a vulnerable file)
+	- fixed bug with style of multiline comments in code viewer
+	- optimized code viewer with file preview window
+
+RIPS 0.51
+----------
+	- fixed bug with apache_setenv() for non-Apache webservers
+	- fixed bug in leakscan preloader
 
 RIPS 0.50
 ----------
